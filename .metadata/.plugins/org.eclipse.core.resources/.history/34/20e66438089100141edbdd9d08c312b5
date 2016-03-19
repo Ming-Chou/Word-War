@@ -1,0 +1,84 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.util.Scanner;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ * 			戰鬥判斷delay輸出位子不知道要塞哪
+ * 			希望由輸出端進行delay再將資料分批送出
+ * */
+
+public class Show_War extends JFrame {
+	private JPanel contentPane;
+	private static String s="" ;
+	static int u=0;
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable()
+		{
+			Scanner scn = new Scanner(System.in);
+			public void run()
+			{
+					try
+					{
+						Show_War frame = new Show_War();
+						frame.setVisible(true);
+					} 
+					catch (Exception e) 
+					{	
+						e.printStackTrace();
+					}
+			}
+		});	
+	}
+	public Show_War() {
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 455, 377);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		
+		JTextPane textPane_2 = new JTextPane(); //怪物資訊
+		//名稱, 血量
+		String Mname = "俊凱";	//假設
+		int MHP = 1000;			//假設
+		textPane_2.setText("名稱: "+Mname+"\r\n"+"血量: "+MHP);
+		textPane_2.setBounds(228, 15, 194, 101);
+		contentPane.add(textPane_2);
+		
+		
+		JScrollPane 輸出滾輪 = new JScrollPane();
+		輸出滾輪.setBounds(10, 127, 420, 125);
+		contentPane.add(輸出滾輪);
+		JTextPane 戰鬥輸出 = new JTextPane();
+		戰鬥輸出.setText(s);
+		輸出滾輪.setViewportView(戰鬥輸出);//戰鬥訊息輸出
+		
+		
+		//假設區間
+		String name = "麥基";
+		String carrer = "拳士";
+		int level = 20;
+		int HP = 3000;
+		int Exp = 1800;
+		int ALEXP = 2000;
+		// 假設
+		
+		JTextPane textPane_1 = new JTextPane();     // 人物名稱
+		//名稱 職業 , 等級,  血量 , 經驗值
+		textPane_1.setText("名稱: "+name+"( "+carrer+" )"+"\r\n"+"等級: "+level+"\r\n"+"血量: "+HP+"\r\n"+"經驗: "+Exp+" / "+ALEXP);			// 職業
+		textPane_1.setBounds(10, 15, 190, 101);		// 血量
+		contentPane.add(textPane_1);
+	}
+}

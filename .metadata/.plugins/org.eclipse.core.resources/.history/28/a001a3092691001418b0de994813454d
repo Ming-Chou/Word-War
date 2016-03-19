@@ -1,0 +1,199 @@
+//package Word_war;
+import java.util.*;
+abstract class Charc {
+	public static String name;
+	public static String carceer;
+	public static int strength;
+	public static int alacrity;
+	public static int lucky;
+	public static int life;
+	public static int exp;
+	public static int level;
+	public static int money;
+	public static int ATK;
+	
+	public static int[] bag = new int[5];
+	public Charc(String name,int strength,int alacrity,int lucky,int life,int exp,int level,int money) 
+	{	
+		this.level=level;
+		this.name=name;
+		this.strength=strength;
+		this.life=life;
+		this.alacrity=alacrity;
+		this.lucky=lucky;
+		this.exp=exp;
+		this.money=money;
+	}
+	abstract public int show_atk();
+	abstract void load(String name,int strength,int alacrity,int lucky,int life,int exp,int level,int money);
+	abstract String show_career();
+}
+
+class ¼C¤h extends Charc
+{
+	public ¼C¤h(String name)
+	{
+		super(name, 4, 2,2,150,50,1,1000);
+	}
+	public void load(String name,int strength,int alacrity,int lucky,int life,int exp,int level,int money)
+	{
+		super.name=name;
+		super.carceer = "¼C¤h";
+		super.strength=strength;
+		super.alacrity=alacrity;
+		super.level=level;
+		super.exp=exp;
+		super.life=life;
+		super.lucky=lucky;
+		super.money=money;
+	}
+	public String show_career()
+	{
+		
+		return "¼C¤h";
+		
+	}
+	public int show_atk()
+	{
+		
+		return super.ATK= strength*5 + alacrity*1 + lucky*1;
+		
+	}
+}
+
+class ¤}½b¤â extends Charc
+{
+	public ¤}½b¤â(String name, int strength, int alacrity, int lucky, int life,int exp,int money)
+	{
+		super(name,2, 4, 4,100, 50,1,1000);
+	}
+	public void load(String name,int strength,int alacrity,int lucky,int life,int exp,int level,int money)
+	{
+		super.name=name;
+		super.carceer = "¤}½b¤â";
+		super.strength=strength;
+		super.alacrity=alacrity;
+		super.level=level;
+		super.exp=exp;
+		super.life=life;
+		super.lucky=lucky;
+		super.money=money;
+	}
+	
+	
+	public String show_career()
+	{
+		
+		return "¤}½b¤â";
+		
+	}
+	public int show_atk()
+	{
+		
+		return super.ATK=strength*1 +(alacrity+lucky)/2*5;
+		
+	}
+}
+
+class µs¸é extends Charc{
+
+	public µs¸é(String name, int strength, int alacrity, int lucky, int life,int exp,int money) {
+		super(name, 2, 4, 2, 100, 50,1,1000);
+		
+	}
+	public void load(String name,int strength,int alacrity,int lucky,int life,int exp,int level,int money)
+	{
+		super.name=name;
+		super.carceer = "µs¸é";
+		super.strength=strength;
+		super.alacrity=alacrity;
+		super.level=level;
+		super.exp=exp;
+		super.life=life;
+		super.lucky=lucky;
+		super.money=money;
+	}
+	public String show_career()
+	{
+		
+		return "µs¸é";
+		
+	}
+	public int show_atk()
+	{
+		return super.ATK=strength*1 + alacrity*5 + lucky*1;
+	}
+}
+
+class Level
+{
+		int exp[]=new int[101];
+		int level;
+		public Level(int lv,int ex)
+		{
+			exp[0]=0;
+			exp[1]=10;
+			int count=10;
+			for (int i=2;i<=10;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=10;
+			}
+			count+=100;
+			for (int i=11;i<=20;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=20;
+			}
+			count+=200;
+			for (int i=21;i<=30;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=50;
+			}
+			count+=300;
+			for (int i=31;i<=40;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=80;
+			}
+			count+=450;
+			for (int i=41;i<=50;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=120;
+			}
+			count+=600;
+			for (int i=51;i<=60;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=160;
+			}
+			count+=800;
+			for (int i=61;i<=70;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=220;
+			}
+			count+=1250;
+			for (int i=71;i<=80;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=300;
+			}
+			count+=2000;
+			for (int i=81;i<=90;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=450;
+			}
+			count+=2500;
+			for (int i=91;i<=100;i++)
+			{
+				exp[i]+=count+exp[i-1];
+				count+=1000;
+			}
+			if (exp[lv]<=ex)
+				this.level=lv+1;
+		}
+}

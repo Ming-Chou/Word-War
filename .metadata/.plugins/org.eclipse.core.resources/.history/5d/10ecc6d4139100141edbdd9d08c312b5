@@ -1,0 +1,319 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.border.BevelBorder;
+
+
+public class MainWindows extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main() {
+		Initialize.main();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindows frame = new MainWindows("Word War");
+					frame.setLocationRelativeTo(null);
+					frame.setResizable(false);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public MainWindows(String a) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 900, 700);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		contentPane.add(layeredPane, BorderLayout.CENTER);
+		
+		JLabel lblWordWar = new JLabel("Word War");
+		lblWordWar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWordWar.setFont(new Font("華康娃娃體", Font.PLAIN, 34));
+		lblWordWar.setForeground(Color.white);
+		lblWordWar.setBounds(371, 0, 155, 43);
+		layeredPane.add(lblWordWar);
+		
+/*------------------------------------------------------------------------------------------------*/
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		layeredPane.setLayer(panel, 0);
+		panel.setForeground(Color.BLACK);
+		panel.setBounds(10, 42, 429, 158);
+		layeredPane.add(panel);
+		panel.setLayout(null);
+		
+		
+		JLabel label = new JLabel("玩家資訊");
+		label.setBounds(10, 10, 60, 15);
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(label);
+		
+		JLabel label1_1 = new JLabel("角色名稱：");
+		label1_1.setBounds(30, 35, 65, 15);
+		panel.add(label1_1);
+		
+		JLabel label1_1A = new JLabel(Charc.name);
+		label1_1A.setBounds(100, 35, 300, 15);
+		panel.add(label1_1A);
+		
+		JLabel label1_2_1 = new JLabel("角色職業：");
+		label1_2_1.setBounds(30, 55, 65, 15);
+		panel.add(label1_2_1);
+		
+		JLabel label1_2_1A = new JLabel(Charc.carceer);
+		label1_2_1A.setBounds(100, 55, 65, 15);
+		panel.add(label1_2_1A);
+		
+		JLabel label1_2_2 = new JLabel("等級：");
+		label1_2_2.setBounds(30, 75, 65, 15);
+		panel.add(label1_2_2);
+		
+		JLabel label1_2_2A = new JLabel(""+Charc.level);
+		label1_2_2A.setBounds(70, 75, 65, 15);
+		panel.add(label1_2_2A);
+		
+		JLabel label1_2_3 = new JLabel("經驗值：");
+		label1_2_3.setBounds(190, 75, 65, 15);
+		panel.add(label1_2_3);
+		
+		JLabel label1_2_3A = new JLabel(""+Charc.exp);
+		label1_2_3A.setBounds(240, 75, 65, 15);
+		panel.add(label1_2_3A);
+		
+		JLabel label1_2_4 = new JLabel("金錢：");
+		label1_2_4.setBounds(30, 95, 65, 15);
+		panel.add(label1_2_4);
+		
+		JLabel label1_2_4A = new JLabel(""+Charc.money);
+		label1_2_4A.setBounds(70, 95, 65, 15);
+		panel.add(label1_2_4A);
+		
+		JLabel label1_3_1 = new JLabel("力量：");
+		label1_3_1.setBounds(30, 115, 60, 15);
+		panel.add(label1_3_1);
+		
+		JLabel label1_3_1A = new JLabel(""+Charc.strength);
+		label1_3_1A.setBounds(70, 115, 60, 15);
+		panel.add(label1_3_1A);
+		
+		JLabel label1_3_2 = new JLabel("幸運：");
+		label1_3_2.setBounds(190, 115, 60, 15);
+		panel.add(label1_3_2);
+		
+		JLabel label1_3_2A = new JLabel(""+Charc.lucky);
+		label1_3_2A.setBounds(230, 115, 60, 15);
+		panel.add(label1_3_2A);
+		
+		JLabel label1_4_1 = new JLabel("敏捷：");
+		label1_4_1.setBounds(30, 135, 60, 15);
+		panel.add(label1_4_1);
+		
+		JLabel label1_4_1A = new JLabel(""+Charc.alacrity);
+		label1_4_1A.setBounds(70, 135, 60, 15);
+		panel.add(label1_4_1A);
+		
+		JLabel label1_4_2 = new JLabel("生命：");
+		label1_4_2.setBounds(190, 135, 60, 15);
+		panel.add(label1_4_2);
+		
+		JLabel label1_4_2A = new JLabel(""+Charc.life);
+		label1_4_2A.setBounds(230, 135, 60, 15);
+		panel.add(label1_4_2A);
+		
+/*------------------------------------------------------------------------------------------------*/
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_1.setBounds(10, 226, 429, 158);
+		layeredPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		
+		JLabel label2 = new JLabel("裝備欄");
+		label2.setBounds(10, 10, 60, 15);
+		panel_1.add(label2);
+		
+		JLabel label2_1 = new JLabel("第一裝備欄：");
+		label2_1.setBounds(30, 35, 80, 15);
+		panel_1.add(label2_1);
+		
+		JLabel label2_1A = new JLabel(""+Charc.bag[0]);
+		label2_1A.setBounds(110, 35, 290, 15);
+		panel_1.add(label2_1A);
+		
+		JLabel label2_2 = new JLabel("第二裝備欄：");
+		label2_2.setBounds(30, 55, 80, 15);
+		panel_1.add(label2_2);
+		
+		JLabel label2_2A = new JLabel(""+Charc.bag[1]);
+		label2_2A.setBounds(110, 55, 290, 15);
+		panel_1.add(label2_2A);
+		
+		JLabel label2_3 = new JLabel("第三裝備欄：");
+		label2_3.setBounds(30, 75, 80, 15);
+		panel_1.add(label2_3);
+		
+		JLabel label2_3A = new JLabel(""+Charc.bag[2]);
+		label2_3A.setBounds(110, 75, 290, 15);
+		panel_1.add(label2_3A);
+		
+		JLabel label2_4 = new JLabel("第四裝備欄：");
+		label2_4.setBounds(30, 95, 80, 15);
+		panel_1.add(label2_4);
+		
+		JLabel label2_4A = new JLabel(""+Charc.bag[3]);
+		label2_4A.setBounds(110, 95, 290, 15);
+		panel_1.add(label2_4A);
+		
+		JLabel label2_5 = new JLabel("第五裝備欄：");
+		label2_5.setBounds(30, 115, 80, 15);
+		panel_1.add(label2_5);
+		
+		JLabel label2_5A = new JLabel(""+Charc.bag[4]);
+		label2_5A.setBounds(110, 115, 290, 15);
+		panel_1.add(label2_5A);
+		
+		JButton button2_1 = new JButton("商店");
+		button2_1.setBounds(332, 125, 87, 23);
+		button2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				sshop.main();
+			}
+		});
+		panel_1.add(button2_1);
+		
+/*------------------------------------------------------------------------------------------------*/
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_2.setBounds(463, 42, 401, 342);
+		layeredPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel label3_1 = new JLabel("地圖");
+		label3_1.setBounds(10, 10, 46, 15);
+		panel_2.add(label3_1);
+		
+		JButton button3_1 = new JButton("北部森林");
+		button3_1.setBounds(146, 35, 110, 23);
+		button3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Initialize.battle_string(,);
+			}
+		});
+		panel_2.add(button3_1);
+		
+		JButton button3_2 = new JButton("西部森林");
+		button3_2.setBounds(10, 65, 110, 23);
+		panel_2.add(button3_2);
+		
+		JButton button3_3 = new JButton("南部森林");
+		button3_3.setBounds(146, 65, 110, 23);
+		panel_2.add(button3_3);
+		
+		JButton button3_4 = new JButton("東部森林");
+		button3_4.setBounds(281, 65, 110, 23);
+		panel_2.add(button3_4);
+		
+		JButton button3_5 = new JButton("消失的電腦教室");
+		button3_5.setBounds(10, 120, 125, 23);
+		panel_2.add(button3_5);
+		
+		JButton button3_6 = new JButton("資工系辦");
+		button3_6.setBounds(146, 120, 110, 23);
+		panel_2.add(button3_6);
+		
+		JButton button3_7 = new JButton("魔化硬體實驗室");
+		button3_7.setBounds(266, 120, 125, 23);
+		panel_2.add(button3_7);
+		
+		JButton button3_8 = new JButton("被遺忘的電腦器材間");
+		button3_8.setBounds(125, 150, 151, 23);
+		panel_2.add(button3_8);
+		
+		JButton button3_9 = new JButton("歐妮恩的奇幻世界");
+		button3_9.setBounds(10, 205, 140, 23);
+		panel_2.add(button3_9);
+		
+		JButton button3_10 = new JButton("麥基的變態房間");
+		button3_10.setBounds(251, 205, 140, 23);
+		panel_2.add(button3_10);
+		
+		JButton button3_11 = new JButton("地獄之門");
+		button3_11.setBounds(146, 235, 110, 23);
+		panel_2.add(button3_11);
+		
+		JButton button3_12 = new JButton("世界的盡頭");
+		button3_12.setBounds(144, 290, 112, 23);
+		panel_2.add(button3_12);
+		
+/*------------------------------------------------------------------------------------------------*/
+		
+		JLabel label_2 = new JLabel("系統資訊");
+		label_2.setForeground(Color.white);
+		label_2.setBounds(10, 410, 60, 15);
+		layeredPane.add(label_2);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setBounds(10, 435, 854, 190);
+		layeredPane.add(textArea);
+		
+		JButton button_1 = new JButton("結束遊戲");
+		button_1.setBounds(777, 635, 87, 23);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		layeredPane.add(button_1);
+		
+		JButton button_2 = new JButton("存檔");
+		button_2.setBounds(680, 635, 87, 23);
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Save.main();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					
+				}
+			}
+		});
+		layeredPane.add(button_2);
+		
+	}
+}

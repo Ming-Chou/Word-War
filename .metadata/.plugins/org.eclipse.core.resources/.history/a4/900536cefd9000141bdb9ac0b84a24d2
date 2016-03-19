@@ -1,0 +1,215 @@
+import java.awt.*;
+
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.filechooser.*;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+
+
+public class Main_Picture
+{
+	private static JTextField TF;
+	public static String dir="";
+	public static void main(String[] args)
+	{				
+		final JFrame MP=new JFrame("Word War");
+		MP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MP.setSize(800,600);
+		MP.setVisible(true);
+		MP.setLocationRelativeTo(null);
+		MP.setResizable(false);
+		MP.getContentPane().setBackground(Color.BLACK);
+		MP.getContentPane().setLayout(null);
+		
+		
+		JButton BNew = new JButton("New");
+		BNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MP.setVisible(false);
+				MainWindows.main();
+				MP.setResizable(false);
+			}
+		});
+		BNew.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+		BNew.setBounds(10, 529, 87, 23);
+		BNew.setBackground(Color.black);
+		BNew.setForeground(Color.white);
+		BNew.setBorder(new LineBorder(Color.black, 0));		
+		MP.getContentPane().add(BNew);
+		
+		
+		
+		JButton BLoad = new JButton("Load");
+		BLoad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Load.main();
+					MainWindows.main();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					final JFrame er=new JFrame("Error");
+					er.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					er.setSize(100,100);
+					er.setVisible(true);
+					er.setUndecorated(false);
+										
+					JButton BEnd2 = new JButton("記錄檔不存在 ");
+					BEnd2.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							er.dispose();
+						}
+					});
+					er.getContentPane().add(BEnd2);
+				}				
+			}
+		});		
+		BLoad.setBounds(107, 529, 87, 23);
+		BLoad.setBackground(Color.black);
+		BLoad.setForeground(Color.white);
+		BLoad.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+		BLoad.setBorder(new LineBorder(Color.black, 0));
+		MP.getContentPane().add(BLoad);
+		
+		
+		JButton BAbout = new JButton("About");
+		BAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {		
+				MP.setVisible(false);
+				final JFrame About=new JFrame("About");
+				About.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				About.setSize(800,600);
+				About.setVisible(true);
+				About.setLocationRelativeTo(null);
+				About.setResizable(false);
+				About.getContentPane().setBackground(Color.BLACK);
+				About.getContentPane().setLayout(null);
+				
+				JLabel JB = new JLabel("");
+				JB.setHorizontalAlignment(SwingConstants.CENTER);
+				JB.setText("<html>現在的遊戲總是以自身的聲光效果為遊戲賣點，我們希望可以做一款即使沒有華麗的畫面，酷炫的音效，也可以吸引人的遊戲，在這款遊戲裡一切都只用文字表示，遊戲開始你將會擁有一個角色，你將會利用他遨遊在各式各樣的地圖中，還有豐富的怪物系統及裝備系統，讓你在打怪練功之餘還可以獲得更加強大的裝備。</html>");
+				JB.setBounds(10, 10, 764, 509);
+				JB.setForeground(Color.white);
+				JB.setFont(new Font("華康娃娃體", Font.BOLD | Font.ITALIC, 40));
+				About.getContentPane().add(JB);	
+				
+				JButton BBack = new JButton("Back");
+				BBack.setBounds(687, 531, 87, 23);
+				BBack.setBackground(Color.black);
+				BBack.setForeground(Color.white);
+				BBack.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+				BBack.setBorder(new LineBorder(Color.black, 0));
+				About.getContentPane().add(BBack);	
+				BBack.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						About.dispose();
+						MP.setVisible(true);
+					}
+				});
+			}
+		});
+		BAbout.setBounds(204, 529, 87, 23);
+		BAbout.setBackground(Color.black);
+		BAbout.setForeground(Color.white);
+		BAbout.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+		BAbout.setBorder(new LineBorder(Color.black, 0));
+		MP.getContentPane().add(BAbout);
+		
+		
+		JButton BTeam = new JButton("Team");
+		BTeam.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MP.setVisible(false);
+				final JFrame Team=new JFrame("Team");
+				Team.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				Team.setSize(800,600);
+				Team.setVisible(true);
+				Team.setLocationRelativeTo(null);
+				Team.setResizable(false);
+				Team.getContentPane().setBackground(Color.BLACK);
+				Team.getContentPane().setLayout(null);
+				
+				JLabel JB = new JLabel("");
+				JB.setHorizontalAlignment(SwingConstants.CENTER);
+				JB.setText("<html>10111217 周鴻明<br>10104126 王俊凱<br>10111105 盧韋良<br>10111111 王永羽<br>10111126 洪禮超<br>10111131 陳柏廷</html>");
+				JB.setBounds(10, 10, 764, 509);
+				JB.setForeground(Color.white);
+				JB.setFont(new Font("華康娃娃體", Font.BOLD | Font.ITALIC, 40));
+				Team.getContentPane().add(JB);	
+				
+				JButton BBack = new JButton("Back");
+				BBack.setBounds(687, 531, 87, 23);
+				BBack.setBackground(Color.black);
+				BBack.setForeground(Color.white);
+				BBack.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+				BBack.setBorder(new LineBorder(Color.black, 0));
+				Team.getContentPane().add(BBack);	
+				BBack.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						Team.dispose();
+						MP.setVisible(true);
+					}
+				});
+			}
+		});
+		BTeam.setBounds(301, 529, 87, 23);
+		BTeam.setBackground(Color.black);
+		BTeam.setForeground(Color.white);
+		BTeam.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+		BTeam.setBorder(new LineBorder(Color.black, 0));
+		MP.getContentPane().add(BTeam);
+		
+		
+		JButton BEnd = new JButton("End");
+		BEnd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MP.dispose();
+			}
+		});
+		BEnd.setBounds(398, 529, 87, 23);
+		BEnd.setBackground(Color.black);
+		BEnd.setForeground(Color.white);
+		BEnd.setFont(new Font("華康娃娃體", Font.BOLD, 20));
+		BEnd.setBorder(new LineBorder(Color.black, 0));
+		MP.getContentPane().add(BEnd);
+		
+		
+		JLabel JB = new JLabel("Word War");
+		JB.setHorizontalAlignment(SwingConstants.CENTER);
+		JB.setBounds(10, 10, 764, 509);
+		JB.setForeground(Color.white);
+		JB.setFont(new Font("華康娃娃體", Font.BOLD | Font.ITALIC, 99));
+		MP.getContentPane().add(JB);				
+		
+	}	
+	
+	public static String JFC()
+	{
+		String dir = "";
+		File file=null;
+		JFileChooser chooser = new JFileChooser();
+		int confirm = chooser.showOpenDialog(null);
+        if (confirm == chooser.APPROVE_OPTION)
+        {
+        	file=chooser.getSelectedFile();
+        }
+        dir=chooser.getSelectedFile()+"";
+        String[] DIR=dir.split("");
+		dir="";
+		for(int i=0;i<DIR.length;i++)
+		{
+			if(DIR[i]=="\\")
+				dir+="/";
+			else
+				dir+=DIR[i];
+		}		        
+        return dir;
+	}
+	
+	
+}
